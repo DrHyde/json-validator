@@ -45,6 +45,12 @@ our $MESSAGES = {
     n_rules_match   => 'oneOf rules %3 match.',
     type            => '/oneOf Expected %3 - got %4.',
   },
+  status => {
+    400 => 'Bad Request.',
+    404 => 'Not Found.',
+    500 => 'Internal Server Error.',
+    501 => 'Not Implemented.',
+  },
   string => {
     pattern   => 'String does not match %3.',
     maxLength => 'String is too long: %3/%4.',
@@ -69,7 +75,7 @@ has message => sub {
     $message = $group->{$details->[1] || 'default'};
   }
 
-  return join ' ', Failed => @$details unless defined $message;
+  return join ' ', @$details unless defined $message;
 
   $message =~ s!\%(\d)\b!{$details->[$1 - 1] // ''}!ge;
   return $message;

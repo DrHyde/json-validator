@@ -24,6 +24,8 @@ our %SCHEMAS = (
   'http://json-schema.org/draft-06/schema#'      => '+Draft6',
   'http://json-schema.org/draft-07/schema#'      => '+Draft7',
   'https://json-schema.org/draft/2019-09/schema' => '+Draft201909',
+  'https://spec.openapis.org/oas/3.0/schema/2019-04-02' => '+OpenAPIv3',
+  'http://swagger.io/v2/schema.json'                    => '+OpenAPIv2',
 );
 
 has formats                   => sub { shift->_build_formats };
